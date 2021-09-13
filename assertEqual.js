@@ -3,9 +3,9 @@ const assertEqual = function(actual, expected) {
   const sad = '😥';
   let response = '';
   if (actual === expected) {
-    response = happy + ' Assertion Passed: ' + actual + ' === ' + expected;
+    response = `${happy} Assertion Passed: ${actual} === ${expected}`;
   } else {
-    response = sad + ' Assertion Failed: ' + actual + ' !== ' + expected;
+    response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
   }
   return response;
 };
