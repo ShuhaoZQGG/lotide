@@ -1,12 +1,12 @@
-import { assertEqual } from './module.js'
+import { assertEqual } from './module.js';
 
-const head = function(list){
-  if (list == undefined){
+const head = function(list) {
+  if (list === []) {
     return undefined;
-  } else{
+  } else {
     return list[0];
   }
-}
+};
 
 console.log(head([1,12,9]));
 console.log(head([]));
