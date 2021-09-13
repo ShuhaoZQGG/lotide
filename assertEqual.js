@@ -5,7 +5,17 @@ const assertEqual = function(actual, expected) {
   if (actual === expected) {
     response = `${happy} Assertion Passed: ${actual} === ${expected}`;
   } else {
-    response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
+    if (typeof(actual) === 'object' && typeof(expected) === 'object') {
+      let actualString = actual.join("");
+      let expectedString = expected.join("");
+      if (actualString === expectedString) {
+        response = `${happy} Assertion Passed: ${actual} === ${expected}`;
+      } else {
+        response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
+      }
+    } else {
+      response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
+    }
   }
   return response;
 };
@@ -13,4 +23,6 @@ const assertEqual = function(actual, expected) {
 // TEST CODE
 console.log(assertEqual("Lighthouse Labs", "Bootcamp"));
 console.log(assertEqual(1, 1));
+console.log(assertEqual([1,2,3], [1,2,3]));
+console.log(assertEqual(["light","house","labs"], "light,house,labs"));
 
