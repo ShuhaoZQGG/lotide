@@ -1,14 +1,19 @@
 import { assertEqual } from './module.js';
 
 const head = function(list) {
+  let answer;
   if (list === []) {
-    return undefined;
+    answer = undefined;
+    console.log(answer);
+    return answer;
   } else {
-    return list[0];
+    answer = list[0];
+    console.log(answer);
+    return answer;
   }
 };
 
-console.log(head([1,12,9]));
-console.log(head([]));
-console.log(assertEqual(head([5,6,7]), 5));
-console.log(assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello"));
+head([1,12,9]);
+head([]);
+assertEqual(head([5,6,7]), 5);
+assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");

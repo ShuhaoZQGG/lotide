@@ -4,15 +4,17 @@ const assertEqual = function(actual, expected) {
   let response = '';
   if (actual === expected) {
     response = `${happy} Assertion Passed: ${actual} === ${expected}`;
+    console.log(response);
   } else {
     response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
+    console.log(response);
   }
   return response;
 };
 
 // TEST CODE
-console.log(assertEqual("Lighthouse Labs", "Bootcamp"));
-console.log(assertEqual(1, 1));
-console.log(assertEqual([1,2,3], [1,2,3]));
-console.log(assertEqual(["light","house","labs"], "light,house,labs"));
+assertEqual("Lighthouse Labs", "Bootcamp");
+assertEqual(1, 1);
+assertEqual([1,2,3], [1,2,3]);
+assertEqual(["light","house","labs"], "light,house,labs");
 
