@@ -5,8 +5,8 @@ const assertEqual = function(actual, expected) {
   if (actual === expected) {
     response = `${happy} Assertion Passed: ${actual} === ${expected}`;
   } else {
-      response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
-    }
+    response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
+  }
   return response;
 };
 

@@ -1,36 +1,26 @@
-export function assertEqual(actual, expected) {
+export const assertEqual = function(actual, expected) {
   const happy = '😄';
   const sad = '😥';
   let response = '';
   if (actual === expected) {
     response = `${happy} Assertion Passed: ${actual} === ${expected}`;
   } else {
-    if (typeof(actual) === 'object' && typeof(expected) === 'object') {
-      let actualString = actual.join("");
-      let expectedString = expected.join("");
-      if (actualString === expectedString) {
-        response = `${happy} Assertion Passed: ${actual} === ${expected}`;
-      } else {
-        response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
-      }
-    } else {
-      response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
-    }
+    response = `${sad} Assertion Failed: ${actual} !== ${expected}`;
   }
   return response;
 };
 
-export function head(list){
-  if (list == undefined){
+export const head = function(list) {
+  if (list === []) {
     return undefined;
-  } else{
+  } else {
     return list[0];
   }
-}
+};
 
-export function tail(list){
+export const tail = function(list) {
   if (list === []) {
     return undefined;
   }
   return list.slice(1);
-}
+};
