@@ -6,9 +6,9 @@ const tail = function(list) {
     answer = undefined;
     console.log(answer);
     return answer;
-  } else{
-    answer = list.slice(1)
-    console.log(answer)
+  } else {
+    answer = list.slice(1);
+    console.log(answer);
     return answer;
   }
 };

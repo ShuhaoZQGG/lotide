@@ -27,15 +27,15 @@ export const tail = function(list) {
   return list.slice(1);
 };
 
-export const eqArrays = function(actual, expect){
+export const eqArrays = function(actual, expect) {
   let answer = true;
-  if (actual.length !== expect.length){
+  if (actual.length !== expect.length) {
     answer = false;
   } else {
-    for (let i = 0; i < actual.length; i++){
-      if (actual[i] !== expect[i]){
+    for (let i = 0; i < actual.length; i++) {
+      if (actual[i] !== expect[i]) {
         answer = false;
-      } 
+      }
     }
   }
   console.log(answer);
