@@ -12,7 +12,6 @@ const countOnly = function(allItems, itemsToCount) {
       }
     }
   }
-
   return object;
 };
 const firstNames = [
