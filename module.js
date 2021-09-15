@@ -50,16 +50,22 @@ export const eqArrays = function(actual, expect) {
 export const assertArraysEqual = function(actual, expected) {
   const happy = '😄';
   const sad = '😥';
-  let answer = `${happy} Assertion Passed: ${actual} === ${expected}`;
-  if (actual.length !== expected.length) {
-    answer = `${sad} Assertion Failed: ${actual} !== ${expected}`;
+
+  eqArrays
+    ? console.log(`${happy} Assertion Passed: ${actual} === ${expected}`)
+    : console.log(`${sad} Assertion Failed: ${actual} !== ${expected}`);
+};
+
+export const middle = function(array) {
+  let middle = [];
+  if (array.length <= 2) {
+    middle;
+  } else if (array.length % 2 !== 0) {
+    middle.push(array[Math.floor(array.length / 2)]);
   } else {
-    for (let i = 0; i < actual.length; i++) {
-      if (actual[i] !== expected[i]) {
-        answer = `${sad} Assertion Failed: ${actual} !== ${expected}`;
-      }
-    }
+    middle.push(array[array.length / 2 - 1]);
+    middle.push(array[array.length / 2]);
   }
-  console.log(answer);
-  return answer;
+  console.log(middle);
+  return middle;
 };
