@@ -1,13 +1,12 @@
 import { assertEqual } from "./module.js";
 
 const findKeyByValue = function(object, value) {
-  const newObject = new Object();
-  for (const [key, val] of Object.entries(object)) {
-    if (!newObject[val]) {
-      newObject[val] = key;
+  const keys = Object.keys(object);
+  for (const key of keys) {
+    if (object[key] === value) {
+      return key;
     }
   }
-  return newObject[value];
 };
 
 const bestTVShowsByGenre = {
@@ -18,3 +17,4 @@ const bestTVShowsByGenre = {
 
 assertEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama");
 assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);
+assertEqual(findKeyByValue(bestTVShowsByGenre, "The Expanse"), "sciFi");
