@@ -118,11 +118,10 @@ export const letterPositions = function(sentence) {
 };
 
 export const findKeyByValue = function(object, value) {
-  const newObject = new Object();
-  for (const [key, val] of Object.entries(object)) {
-    if (!newObject[val]) {
-      newObject[val] = key;
+  const keys = Object.keys(object);
+  for (const key of keys) {
+    if (object[key] === value) {
+      return key;
     }
   }
-  return newObject[value];
 };
