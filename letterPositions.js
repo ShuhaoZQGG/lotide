@@ -12,9 +12,8 @@ const letterPositions = function(sentence) {
     }
   }
 
-  if (results[' ']) {
-    delete results[' '];
-  }
+  delete results[' '];
+  
 
   console.log(results);
   return results;
