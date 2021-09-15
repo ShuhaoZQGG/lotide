@@ -103,16 +103,14 @@ export const countLetters = function(string) {
 export const letterPositions = function(sentence) {
   const results = {};
   // logic to update results here
+  sentence = sentence.toLowerCase();
   for (let i = 0; i < sentence.length; i++) {
-    if (results[sentence[i]]) {
-      results[sentence[i]].push(i);
-    } else {
-      results[sentence[i]] = [i];
-    }
-  }
+    const currentChar = sentence[i];
+    if (currentChar === ' ') continue;
 
-  if (results[' ']) {
-    delete results[' '];
+    if (!results[currentChar]) results[currentChar] = [];
+
+    results[currentChar].push(i);
   }
 
   console.log(results);
