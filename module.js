@@ -99,3 +99,22 @@ export const countLetters = function(string) {
   console.log(object);
   return object;
 };
+
+export const letterPositions = function(sentence) {
+  const results = {};
+  // logic to update results here
+  for (let i = 0; i < sentence.length; i++) {
+    if (results[sentence[i]]) {
+      results[sentence[i]].push(i);
+    } else {
+      results[sentence[i]] = [i];
+    }
+  }
+
+  if (results[' ']) {
+    delete results[' '];
+  }
+
+  console.log(results);
+  return results;
+};
