@@ -1,3 +1,5 @@
+import { inspect } from "util";
+
 export const assertEqual = function(actual, expected) {
   const happy = '😄';
   const sad = '😥';
@@ -148,13 +150,11 @@ export const eqObjects = function(actual, expected) {
 };
 
 export const assertObjectsEqual = function(actual, expected) {
-  //  const inspect = require('util').inspect;
   // Implement me!
   if (eqObjects(actual, expected)) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+    console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
   } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
+    console.log(`🛑🛑🛑 Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
   }
-  
-  //  console.log(`Example label: ${inspect(actual)}`);
 };
+
