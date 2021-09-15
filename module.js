@@ -125,3 +125,36 @@ export const findKeyByValue = function(object, value) {
     }
   }
 };
+
+export const eqObjects = function(actual, expected) {
+  let answer = true;
+  if (Object.keys(actual).length !== Object.keys(expected).length) answer = false;
+  
+  for (const key in actual) {
+    if (!Object.prototype.hasOwnProperty.call(expected, key)) answer = false;
+
+    if (!Array.isArray(expected[key])) {
+      if (expected[key] !== actual[key]) {
+        answer = false;
+      }
+    } else {
+      if (!eqArrays(actual[key],expected[key])) {
+        answer = false;
+      }
+    }
+  }
+
+  return answer;
+};
+
+export const assertObjectsEqual = function(actual, expected) {
+  //  const inspect = require('util').inspect;
+  // Implement me!
+  if (eqObjects(actual, expected)) {
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+  } else {
+    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
+  }
+  
+  //  console.log(`Example label: ${inspect(actual)}`);
+};
