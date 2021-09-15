@@ -11,7 +11,7 @@ const eqArrays = function(actual, expected) {
       }
     }
   }
-  console.log(answer);
+  //  console.log(answer);
   return answer;
 };
 

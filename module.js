@@ -43,7 +43,7 @@ export const eqArrays = function(actual, expect) {
       }
     }
   }
-  console.log(answer);
+  //  console.log(answer);
   return answer;
 };
 
