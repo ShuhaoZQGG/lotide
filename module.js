@@ -165,3 +165,13 @@ export const map = function(array, callback) {
   }
   return results;
 };
+
+export const findKey = function(object, callback){
+  const keys = Object.keys(object);
+  for (const key of keys){
+    if (callback(object[key])){
+      console.log(key);
+      break;
+    } 
+  }
+};

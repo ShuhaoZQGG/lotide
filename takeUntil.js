@@ -1,15 +1,15 @@
 const takeUntil = function(array, callback) {
   // ...
-  let result = []
-  for (let el of array){
-    if(!callback(el)){
+  let result = [];
+  for (let el of array) {
+    if (!callback(el)) {
       result.push(el);
     } else {
       break;
     }
   }
   return result;
-}
+};
 /*
 [ 1, 2, 5, 7, 2 ]
 ---
