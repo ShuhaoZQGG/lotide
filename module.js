@@ -34,18 +34,21 @@ export const tail = function(list) {
   return list.slice(1);
 };
 
-export const eqArrays = function(actual, expect) {
+export const eqArrays = function(actual, expected) {
   let answer = true;
-  if (actual.length !== expect.length) {
+
+  if (actual.length !== expected.length) {
     answer = false;
   } else {
     for (let i = 0; i < actual.length; i++) {
-      if (actual[i] !== expect[i]) {
+      if (!Array.isArray(actual[i]) && actual[i] !== expected[i]){
         answer = false;
+      } else if (Array.isArray(actual[i])){
+        answer = eqArrays(actual[i], expected[i])
       }
     }
   }
-  //  console.log(answer);
+  
   return answer;
 };
 
@@ -134,20 +137,23 @@ export const eqObjects = function(actual, expected) {
   
   for (const key in actual) {
     if (!Object.prototype.hasOwnProperty.call(expected, key)) answer = false;
-
-    if (!Array.isArray(expected[key])) {
-      if (expected[key] !== actual[key]) {
-        answer = false;
-      }
-    } else {
+    
+    if (typeof(actual[key]) === 'object' && Array.isArray(actual[key])) {
       if (!eqArrays(actual[key],expected[key])) {
         answer = false;
       }
-    }
-  }
-
+    }  else if (typeof(actual[key]) !== 'object'){
+      if (expected[key] !== actual[key]) {
+        answer = false;
+      }
+    } else if (typeof(actual[key]) === 'object' && !Array.isArray(actual[key])){
+      answer = eqObjects(actual[key], expected[key])
+    } 
+}
+  //console.log(answer);
   return answer;
 };
+
 
 export const assertObjectsEqual = function(actual, expected) {
   // Implement me!
