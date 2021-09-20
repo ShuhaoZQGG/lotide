@@ -1,5 +1,5 @@
 const assertEqual = require('../assertEqual');
-const tail = require('../tail')
+const tail = require('../tail');
 
 console.log(tail([1,2,3,4]));
 const result = tail(["Hello", "Lighthouse", "Labs"]);
