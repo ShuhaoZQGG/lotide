@@ -1,6 +1,5 @@
-import { inspect } from "util";
-import { eqObjects } from "./module.js";
-
+const {inspect} = require('util');
+const eqObjects = require('./eqObjects');
 // FUNCTION IMPLEMENTATION
 const assertObjectsEqual = function(actual, expected) {
   // Implement me!
@@ -24,3 +23,5 @@ assertObjectsEqual(cd, dc); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertObjectsEqual(cd, cd2); // => false
+
+module.exports = assertObjectsEqual

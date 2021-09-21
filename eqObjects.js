@@ -1,5 +1,4 @@
-import { eqArrays } from "./module.js";
-
+const eqArrays = require('./eqArrays');
 const eqObjects = function(actual, expected) {
   let answer = true;
   if (Object.keys(actual).length !== Object.keys(expected).length) answer = false;
@@ -19,25 +18,26 @@ const eqObjects = function(actual, expected) {
       answer = eqObjects(actual[key], expected[key])
     } 
 }
-  //console.log(answer);
   return answer;
 };
 
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-eqObjects(ab, ba); // => true
+console.log(eqObjects(ab, ba)); // => true
 
 const abc = { a: "1", b: "2", c: "3" };
-eqObjects(ab, abc); // => false
+console.log(eqObjects(ab, abc)); // => false
 
 const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
-eqObjects(cd, dc); // => true
+console.log(eqObjects(cd, dc)); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
-eqObjects(cd, cd2); // => false
+console.log(eqObjects(cd, cd2)); // => false
 
 console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })) // => true
 console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })) // => false
 console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })) // => false
+
+module.exports = eqObjects;
 
