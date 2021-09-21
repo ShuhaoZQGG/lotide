@@ -1,4 +1,4 @@
-import { assertEqual } from "./module.js";
+const assertEqual = require('./assertEqual');
 
 const findKeyByValue = function(object, value) {
   const keys = Object.keys(object);

@@ -1,4 +1,4 @@
-import { assertArraysEqual } from "./module.js";
+const assertArraysEqual = require('./assertArraysEqual');
 
 const letterPositions = function(sentence) {
   const results = {};

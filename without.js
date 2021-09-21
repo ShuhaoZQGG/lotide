@@ -1,4 +1,4 @@
-import { assertArraysEqual } from "./module.js";
+const assertArraysEqual = require('./assertArraysEqual');
 
 const without = function(source, itemsToRemove) {
   let answer = [];

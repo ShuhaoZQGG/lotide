@@ -1,4 +1,4 @@
-import { assertEqual } from "./module.js";
+const assertEqual = require('./assertEqual');
 
 const countOnly = function(allItems, itemsToCount) {
   const object = new Object();
