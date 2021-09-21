@@ -1,24 +1,41 @@
 const assertArraysEqual = require("../assertArraysEqual");
 const middle = require("../middle");
+const {assert} = require('chai');
 
-// 1 and 2 elements have no middle
-console.log(middle([1])); // => []
-console.log(middle([1, 2])); // => []
+describe('#middle', () => {
+  it("return [] for [1]", () => {
+    const input = [1];
+    const output = [];
+    assert.deepEqual(middle(input), output)
+  }),
 
-// odd number of elements
-console.log(middle([1, 2, 3])); // => [2]
-console.log(middle([1, 2, 3, 4, 5])); // => [3]
+  it("return [] for [1,2]", () => {
+    const input = [1,2];
+    const output = [];
+    assert.deepEqual(middle(input), output)
+  }),
 
-//even number of elements
-console.log(middle([1, 2, 3, 4])); // => [2, 3]
-console.log(middle([1, 2, 3, 4, 5, 6])); // => [3, 4]
+  it("return [2] for [1,2,3]", () => {
+    const input = [1,2,3];
+    const output = [2];
+    assert.deepEqual(middle(input), output)
+  }),
 
+  it("return [3] for [1,2,3,4,5]", () => {
+    const input = [1,2,3,4,5];
+    const output = [3];
+    assert.deepEqual(middle(input), output)
+  }),
 
-assertArraysEqual(middle([1]),[]);
-assertArraysEqual(middle([1,2]), []);
+  it("return [2,3] for [1,2,3,4]", () => {
+    const input = [1,2,3,4];
+    const output = [2,3];
+    assert.deepEqual(middle(input), output)
+  }),
 
-assertArraysEqual(middle([1,2,3]), [2]);
-assertArraysEqual(middle([1,2,3,4,5]), [3]);
-
-assertArraysEqual(middle([1,2,3,4]), [2,3]);
-assertArraysEqual(middle([1,2,3,4,5,6]), [3,4]);
+  it("return [3,4] for [1,2,3,4,5,6]", () => {
+    const input = [1,2,3,4,5,6];
+    const output = [3,4];
+    assert.deepEqual(middle(input), output)
+  })
+})
