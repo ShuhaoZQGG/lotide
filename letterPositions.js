@@ -13,12 +13,7 @@ const letterPositions = function(sentence) {
     results[currentChar].push(i);
   }
 
-  console.log(results);
   return results;
 };
 
-
-letterPositions("lighthouse in the house");
-letterPositions("AAaBbCc");
-letterPositions("");
-assertArraysEqual(letterPositions("hello").e, [1]);
+module.exports = letterPositions;

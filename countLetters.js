@@ -10,9 +10,7 @@ const countLetters = function(string) {
       object[el] = 1;
     }
   }
-  console.log(object);
   return object;
 };
 
-
-countLetters("lighthouse in the house");
+module.exports = countLetters;
